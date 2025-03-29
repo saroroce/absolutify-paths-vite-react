@@ -22,7 +22,7 @@
 ## Установка
 
 ```bash
-npm install absolutify-paths-vite --save-dev
+npm install absolutify-paths-vite-react
 ```
 
 ## Использование
@@ -31,7 +31,7 @@ npm install absolutify-paths-vite --save-dev
 
 ```typescript
 import { defineConfig } from 'vite';
-import { absolutifyPaths } from 'absolutify-paths-vite';
+import { absolutifyPaths } from 'absolutify-paths-vite-react';
 
 export default defineConfig({
   plugins: [
@@ -57,7 +57,7 @@ export default defineConfig({
 ```typescript
 // vite.config.ts
 import { defineConfig } from 'vite';
-import { absolutifyPaths } from 'absolutify-paths-vite';
+import { absolutifyPaths } from 'absolutify-paths-vite-react';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({

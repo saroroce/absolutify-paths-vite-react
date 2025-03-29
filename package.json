@@ -1,6 +1,6 @@
 {
   "name": "absolutify-paths-vite-react",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Vite plugin to transform relative paths to absolute for WordPress theme development with HMR support",
   "homepage": "https://github.com/saroroce/absolutify-paths-vite-react#readme",
   "bugs": {
@@ -13,9 +13,16 @@
   "license": "MIT",
   "author": "saroroce",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/absolutify-paths-vite.js",
+  "module": "./dist/absolutify-paths-vite.js",
+  "types": "./dist/absolutify-paths-vite.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/absolutify-paths-vite.d.ts",
+      "import": "./dist/absolutify-paths-vite.js",
+      "require": "./dist/absolutify-paths-vite.js"
+    }
+  },
   "files": [
     "dist"
   ],
@@ -31,10 +38,10 @@
     "absolute-paths"
   ],
   "peerDependencies": {
-    "vite": "^4.0.0 || ^5.0.0"
+    "vite": "*"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "vite": "^5.0.0"
+    "typescript": "*",
+    "vite": "*"
   }
 }

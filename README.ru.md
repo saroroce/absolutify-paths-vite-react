@@ -103,6 +103,32 @@ export const MyComponent = () => {
 };
 ```
 
+## Конфигурация WordPress темы
+
+Для включения HMR в вашей WordPress теме, вам нужно добавить следующий скрипт в файл `header.php` вашей темы:
+
+```php
+<!-- React HMR -->
+<script type="module">
+    import RefreshRuntime from "http://localhost:3000/@react-refresh"
+    RefreshRuntime.injectIntoGlobalHook(window)
+    window.$RefreshReg$ = () => {}
+    window.$RefreshSig$ = () => (type) => type
+    window.__vite_plugin_react_preamble_installed__ = true
+</script>
+<!-- /React HMR -->
+```
+
+Этот скрипт необходим для корректной работы React HMR в WordPress. Он:
+- Импортирует React Refresh runtime с вашего Vite dev сервера
+- Внедряет необходимые HMR хуки в глобальный объект window
+- Настраивает требуемые функции React Refresh для обновления компонентов
+
+Убедитесь, что:
+1. Размещаете этот скрипт в секции `<head>` вашего `header.php`
+2. Обновляете URL `localhost:3000` в соответствии с портом вашего Vite dev сервера
+3. Сохраняете вызов функции `wp_head()` перед этим скриптом
+
 ## Лицензия
 
 MIT 

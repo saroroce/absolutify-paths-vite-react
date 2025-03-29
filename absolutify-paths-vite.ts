@@ -1,6 +1,13 @@
 import { Plugin } from 'vite';
 import { CustomPluginOptions } from 'rollup';
-export const absolutifyPaths = (options: CustomPluginOptions = {}): Plugin => {
+
+interface AbsolutifyPathsOptions extends CustomPluginOptions {
+    strings?: [string, string][];
+    enforce?: 'pre' | 'post';
+    apply?: 'serve' | 'build';
+}
+
+export const absolutifyPaths = (options: AbsolutifyPathsOptions = {}): Plugin => {
     const { strings = [], enforce = 'pre', apply = 'serve' } = options;
     return {
         name: 'absolutify-paths',
